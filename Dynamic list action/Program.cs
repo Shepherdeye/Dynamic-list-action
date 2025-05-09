@@ -12,16 +12,9 @@ namespace Dynamic_list_action
             //values
             List<int> values = [];
 
-
-
-            
-           
-
-
             string choice = default;
 
             
-
             do
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
