@@ -31,7 +31,7 @@ namespace Dynamic_list_action
                 Console.ForegroundColor = ConsoleColor.Gray;
 
                 Console.WriteLine("Enter Your Choice\n");
-                choice = Console.ReadLine().ToUpper();
+                choice = Console.ReadLine().Trim().ToUpper();
 
 
                 switch (choice)
