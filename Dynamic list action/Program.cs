@@ -14,7 +14,7 @@ namespace Dynamic_list_action
 
             string choice = default;
 
-            
+
             do
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -128,7 +128,7 @@ namespace Dynamic_list_action
 
                         if (values.Count != 0)
                         {
-                        int smallest = values[0];
+                            int smallest = values[0];
                             for (int i = 0; i < values.Count; i++)
                             {
                                 if (values[i] < smallest)
@@ -149,22 +149,23 @@ namespace Dynamic_list_action
                             Console.ForegroundColor = ConsoleColor.White;
                         }
 
-                            break;
-                        case "L":
-                        if (values.Count != 0) { 
-                        int largest = values[0];
+                        break;
+                    case "L":
+                        if (values.Count != 0)
+                        {
+                            int largest = values[0];
 
                             for (int i = 0; i < values.Count; i++)
-                        {
-                            if (values[i] > largest)
                             {
-                                largest = values[i];
+                                if (values[i] > largest)
+                                {
+                                    largest = values[i];
+                                }
                             }
-                        }
-                        Console.ForegroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.Green;
 
-                        Console.WriteLine($"\n'{largest}' is The largest number\n");
-                        Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine($"\n'{largest}' is The largest number\n");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         else
                         {
@@ -174,21 +175,22 @@ namespace Dynamic_list_action
                         }
                         break;
 
-                        case "F":
-                        
+                    case "F":
+
                         Console.WriteLine("Enter the number you are looking for");
-                        
-                        int inputnum=Convert.ToInt32(Console.ReadLine());
+
+                        int inputnum = Convert.ToInt32(Console.ReadLine());
 
 
                         int index = -1;
 
                         for (int i = 0; i < values.Count; i++)
                         {
-                            if (values[i] == inputnum){
+                            if (values[i] == inputnum)
+                            {
                                 index = i;
                             }
-                        }  
+                        }
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine($"\nthe index  of the  number  is '{index}'\n");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -199,7 +201,7 @@ namespace Dynamic_list_action
                     case "C":
 
                         values.Clear();
-                        Console.ForegroundColor= ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\nList has been deleted successfully\n");
                         Console.ForegroundColor = ConsoleColor.White;
 
@@ -210,18 +212,18 @@ namespace Dynamic_list_action
 
 
                         Console.WriteLine("Enter two numbers separated by space :");
-                        string [] inputNumbers=Console.ReadLine().Trim().Split();
+                        string[] inputNumbers = Console.ReadLine().Trim().Split();
 
-                        if (inputNumbers.Length<2)
+                        if (inputNumbers.Length < 2)
                         {
-                            Console.ForegroundColor=ConsoleColor.DarkYellow;
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine("\nShould Enter two values\n");
                             Console.ForegroundColor = ConsoleColor.White;
 
                             break;
                         }
-                        int inputOne=Convert.ToInt32(inputNumbers[0]);
-                        int inputTWo=Convert.ToInt32(inputNumbers[1]);
+                        int inputOne = Convert.ToInt32(inputNumbers[0]);
+                        int inputTWo = Convert.ToInt32(inputNumbers[1]);
 
 
                         List<int> indexes = new List<int>();
@@ -233,7 +235,7 @@ namespace Dynamic_list_action
                             {
                                 indexes.Add(i);
                             }
-                         
+
                         }
 
                         if (indexes.Count == 2)
@@ -244,7 +246,7 @@ namespace Dynamic_list_action
                             values[indexes[0]] = values[indexes[1]];
                             values[indexes[1]] = temp;
 
-                            
+
                             string tamplateView = "";
                             for (int i = 0; i < values.Count; i++)
                             {
@@ -257,7 +259,7 @@ namespace Dynamic_list_action
                             Console.ForegroundColor = ConsoleColor.White;
                         }
 
-                        if  (!foundedItem)
+                        if (!foundedItem)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("\nInputs not found\n");
@@ -265,18 +267,23 @@ namespace Dynamic_list_action
 
                         }
                         break;
+
                     case "X":
 
                         Console.WriteLine("Enter numbers separated by space :");
-                        string[] bulkAdd = Console.ReadLine().Trim().Split();
-                      
-                        if(bulkAdd.Length == 0)
+
+                        string? input = Console.ReadLine();
+
+                        if (input == null || input == "" || input == " ")
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Values Required");
                             Console.ForegroundColor = ConsoleColor.White;
                             break;
                         }
+;
+                        string[] bulkAdd = input.Trim().Split();
+
 
                         for (int i = 0; i < bulkAdd.Length; i++)
                         {
@@ -290,42 +297,44 @@ namespace Dynamic_list_action
 
                         break;
 
-                        case "Y":
-                        
+
+
+                    case "Y":
+
 
                         if (values.Count != 0)
                         {
                             int swap;
 
-                            for (int j=0; j<values.Count-1; j++)
+                            for (int j = 0; j < values.Count - 1; j++)
                             {
-                                for (int i=0; i<values.Count-1;i++)
+                                for (int i = 0; i < values.Count - 1; i++)
                                 {
-                                    if(values[i] > values[i+1])
+                                    if (values[i] > values[i + 1])
                                     {
                                         swap = values[i];
-                                        values[i] = values[i+1];
-                                        values[i+1]=swap;
-                                    
+                                        values[i] = values[i + 1];
+                                        values[i + 1] = swap;
+
                                     }
 
                                 }
 
                             }
 
-                            string temp="";
-                            for(int  i=0; i < values.Count; i++)
+                            string temp = "";
+                            for (int i = 0; i < values.Count; i++)
                             {
                                 temp += $"{values[i]} ";
                             }
 
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine($"\n'Order Ascending '\n");
-                            Console.WriteLine($"[ { temp}]\n");
+                            Console.WriteLine($"[ {temp}]\n");
                             Console.ForegroundColor = ConsoleColor.White;
                         }
                         else
-                        { 
+                        {
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine($"\n'There is no data in the list'\n");
                             Console.ForegroundColor = ConsoleColor.White;
@@ -335,7 +344,7 @@ namespace Dynamic_list_action
                         break;
 
                     case "D":
-                        
+
 
                         if (values.Count != 0)
                         {
