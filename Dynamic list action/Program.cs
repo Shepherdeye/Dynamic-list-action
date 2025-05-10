@@ -189,6 +189,7 @@ namespace Dynamic_list_action
                             if (values[i] == inputnum)
                             {
                                 index = i;
+				break;
                             }
                         }
                         if (index == -1)
