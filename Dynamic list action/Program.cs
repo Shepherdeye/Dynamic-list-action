@@ -183,19 +183,21 @@ namespace Dynamic_list_action
 
 
                         int index = -1;
+                        
 
                         for (int i = 0; i < values.Count; i++)
                         {
                             if (values[i] == inputnum)
                             {
                                 index = i;
-				break;
+                                
+				                break;
                             }
                         }
                         if (index == -1)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($"\nList is Empty \n");
+                            Console.WriteLine($"\n'{inputnum}' Not Found\n");
                             Console.ForegroundColor = ConsoleColor.White;
                         }
                         else
