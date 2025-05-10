@@ -191,12 +191,21 @@ namespace Dynamic_list_action
                                 index = i;
                             }
                         }
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"\nthe index  of the  number  is '{index}'\n");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        if (index == -1)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"\nList is Empty \n");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"\nthe index  of the  number  is '{index}'\n");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
 
 
-                        break;
+                            break;
 
                     case "C":
 
@@ -280,8 +289,8 @@ namespace Dynamic_list_action
                             Console.WriteLine("Values Required");
                             Console.ForegroundColor = ConsoleColor.White;
                             break;
-                        }
-;
+                        };
+
                         string[] bulkAdd = input.Trim().Split();
 
 
